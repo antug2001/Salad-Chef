@@ -5,22 +5,147 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
 
+    public GameObject fruitStallOne;
+    public GameObject fruitStallTwo;
+    public GameObject fruitStallThree;
+    public GameObject fruitStallFour;
+    public GameObject fruitStallFive;
+    public GameObject fruitStallSix;
+    public GameObject customerOne;
+    public GameObject customerTwo;
+    public GameObject customerThree;
+    public GameObject customerFour;
+    public GameObject customerFive;
+    public GameObject choppingBoardOne;
+    public GameObject choppingBoardTwo;
+    public GameObject trashCanOne;
+    public GameObject trashCanTwo;
+    public GameObject plateTable;
     private float ZoomAmount = 0;
     private float MaxToClamp = 10;
     private float ROTSpeed = 1;
     private Vector3 touchStart;
     private float groundZ = 0;
-
+    private PlayerManager playerManager;
+    public GameObject players;
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerManager = players.GetComponent<PlayerManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }    
+
+    public void HandlePlayersMovementTrack()
+    {
+        if (Input.GetKeyDown(KeyCode.Return) && !playerManager.isMovementAllowedPlayerOne)
+            playerManager.isMovementAllowedPlayerOne = true;
+
+        if (Input.GetKeyDown(KeyCode.Space) && !playerManager.isMovementAllowedPlayerTwo)
+            playerManager.isMovementAllowedPlayerTwo = true;
+
+        if (playerManager.isMovementAllowedPlayerOne)
+        {
+            //input keymap for first player
+            if (Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                playerManager.targetPlayerOnePosition = customerOne.transform;
+            }
+            else if (Input.GetKeyDown(KeyCode.Keypad2) || Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                playerManager.targetPlayerOnePosition = customerTwo.transform;
+            }
+            else if (Input.GetKeyDown(KeyCode.Keypad3) || Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                playerManager.targetPlayerOnePosition = customerThree.transform;
+            }
+            else if (Input.GetKeyDown(KeyCode.Keypad4) || Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                playerManager.targetPlayerOnePosition = customerFour.transform;
+            }
+            else if (Input.GetKeyDown(KeyCode.Keypad5) || Input.GetKeyDown(KeyCode.Alpha5))
+            {
+                playerManager.targetPlayerOnePosition = customerFive.transform;
+            }
+            else if (Input.GetKeyDown(KeyCode.F1))
+            {
+                playerManager.targetPlayerOnePosition = fruitStallOne.transform;
+            }
+            else if (Input.GetKeyDown(KeyCode.F2) )
+            {
+                playerManager.targetPlayerOnePosition = fruitStallTwo.transform;
+            }
+            else if (Input.GetKeyDown(KeyCode.F3))
+            {
+                playerManager.targetPlayerOnePosition = fruitStallThree.transform;
+            }
+            else if (Input.GetKeyDown(KeyCode.F4) )
+            {
+                playerManager.targetPlayerOnePosition = fruitStallFour.transform;
+            }
+            else if (Input.GetKeyDown(KeyCode.F5))
+            {
+                playerManager.targetPlayerOnePosition = fruitStallFive.transform;
+            }
+            else if (Input.GetKeyDown(KeyCode.F6))
+            {
+                playerManager.targetPlayerOnePosition = fruitStallSix.transform;
+            }            
+        }
+        //input key map for second player
+        if (playerManager.isMovementAllowedPlayerTwo)
+        {
+            if (Input.GetKeyDown(KeyCode.Keypad6) || Input.GetKeyDown(KeyCode.Alpha6))
+            {
+                playerManager.targetPlayerTwoPosition = customerOne.transform;
+               // playerManager.playerIdentity = PlayerManager.PlayerType.PLAYER_ONE;
+                playerManager.playerOneDestinationIdentity = PlayerManager.DestinationType.CUSTOMER_ONE;
+            }
+            else if (Input.GetKeyDown(KeyCode.Keypad7) || Input.GetKeyDown(KeyCode.Alpha7))
+            {
+                playerManager.targetPlayerTwoPosition = customerTwo.transform;
+            }
+            else if (Input.GetKeyDown(KeyCode.Keypad8) || Input.GetKeyDown(KeyCode.Alpha8))
+            {
+                playerManager.targetPlayerTwoPosition = customerThree.transform;
+            }
+            else if (Input.GetKeyDown(KeyCode.Keypad9) || Input.GetKeyDown(KeyCode.Alpha9))
+            {
+                playerManager.targetPlayerTwoPosition = customerFour.transform;
+            }
+            else if (Input.GetKeyDown(KeyCode.Keypad0) || Input.GetKeyDown(KeyCode.Alpha0))
+            {
+                playerManager.targetPlayerTwoPosition = customerFive.transform;
+            }
+            else if (Input.GetKeyDown(KeyCode.F7))
+            {
+                playerManager.targetPlayerTwoPosition = fruitStallOne.transform;
+            }
+            else if (Input.GetKeyDown(KeyCode.F8))
+            {
+                playerManager.targetPlayerTwoPosition = fruitStallTwo.transform;
+            }
+            else if (Input.GetKeyDown(KeyCode.F9))
+            {
+                playerManager.targetPlayerTwoPosition = fruitStallThree.transform;
+            }
+            else if (Input.GetKeyDown(KeyCode.F10))
+            {
+                playerManager.targetPlayerTwoPosition = fruitStallFour.transform;
+            }
+            else if (Input.GetKeyDown(KeyCode.F11))
+            {
+                playerManager.targetPlayerTwoPosition = fruitStallFive.transform;
+            }
+            else if (Input.GetKeyDown(KeyCode.F12))
+            {
+                playerManager.targetPlayerTwoPosition = fruitStallSix.transform;
+            }
+        }
     }
 
     public void HandleCameraZoom()//mouse wheel rotation based camera distance calculate within max-min position for zooming
