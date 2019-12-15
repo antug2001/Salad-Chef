@@ -21,11 +21,11 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         inputManager = gameFacilitator.GetComponent<InputManager>();
-        fruitStallManager = gameFacilitator.GetComponent<FruitStallManager>();
-        customersManager = gameFacilitator.GetComponent<CustomerManager>();
-        trashCansManager = gameFacilitator.GetComponent<TrashCanManager>();
-        choppingBoardManager = gameFacilitator.GetComponent<ChoppingBoardManager>();
-        plateTablelManager = gameFacilitator.GetComponent<PlateTableManager>();
+        fruitStallManager = fruitStalls.GetComponent<FruitStallManager>();
+        customersManager = customers.GetComponent<CustomerManager>();
+        trashCansManager = trashCans.GetComponent<TrashCanManager>();
+        choppingBoardManager = choppingBoards.GetComponent<ChoppingBoardManager>();
+        plateTablelManager = plateTable.GetComponent<PlateTableManager>();
     }
 
     // Update is called once per frame

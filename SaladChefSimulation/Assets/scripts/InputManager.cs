@@ -74,26 +74,32 @@ public class InputManager : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.F1))
             {
                 playerManager.targetPlayerOnePosition = fruitStallOne.transform;
+                playerManager.playerOneDestinationIdentity = PlayerManager.DestinationType.FRUIT_STALL_ONE;
             }
             else if (Input.GetKeyDown(KeyCode.F2) )
             {
                 playerManager.targetPlayerOnePosition = fruitStallTwo.transform;
+                playerManager.playerOneDestinationIdentity = PlayerManager.DestinationType.FRUIT_STALL_TWO;
             }
             else if (Input.GetKeyDown(KeyCode.F3))
             {
                 playerManager.targetPlayerOnePosition = fruitStallThree.transform;
+                playerManager.playerOneDestinationIdentity = PlayerManager.DestinationType.FRUIT_STALL_THREE;
             }
             else if (Input.GetKeyDown(KeyCode.F4) )
             {
                 playerManager.targetPlayerOnePosition = fruitStallFour.transform;
+                playerManager.playerOneDestinationIdentity = PlayerManager.DestinationType.FRUIT_STALL_FOUR;
             }
             else if (Input.GetKeyDown(KeyCode.F5))
             {
                 playerManager.targetPlayerOnePosition = fruitStallFive.transform;
+                playerManager.playerOneDestinationIdentity = PlayerManager.DestinationType.FRUIT_STALL_FIVE;
             }
             else if (Input.GetKeyDown(KeyCode.F6))
             {
                 playerManager.targetPlayerOnePosition = fruitStallSix.transform;
+                playerManager.playerOneDestinationIdentity = PlayerManager.DestinationType.FRUIT_STALL_SIX;
             }            
         }
         //input key map for second player
@@ -101,9 +107,7 @@ public class InputManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Keypad6) || Input.GetKeyDown(KeyCode.Alpha6))
             {
-                playerManager.targetPlayerTwoPosition = customerOne.transform;
-               // playerManager.playerIdentity = PlayerManager.PlayerType.PLAYER_ONE;
-                playerManager.playerOneDestinationIdentity = PlayerManager.DestinationType.CUSTOMER_ONE;
+                playerManager.targetPlayerTwoPosition = customerOne.transform; 
             }
             else if (Input.GetKeyDown(KeyCode.Keypad7) || Input.GetKeyDown(KeyCode.Alpha7))
             {
@@ -124,26 +128,32 @@ public class InputManager : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.F7))
             {
                 playerManager.targetPlayerTwoPosition = fruitStallOne.transform;
+                playerManager.playerTwoDestinationIdentity = PlayerManager.DestinationType.FRUIT_STALL_ONE;
             }
             else if (Input.GetKeyDown(KeyCode.F8))
             {
                 playerManager.targetPlayerTwoPosition = fruitStallTwo.transform;
+                playerManager.playerTwoDestinationIdentity = PlayerManager.DestinationType.FRUIT_STALL_TWO;
             }
             else if (Input.GetKeyDown(KeyCode.F9))
             {
                 playerManager.targetPlayerTwoPosition = fruitStallThree.transform;
+                playerManager.playerTwoDestinationIdentity = PlayerManager.DestinationType.FRUIT_STALL_THREE;
             }
             else if (Input.GetKeyDown(KeyCode.F10))
             {
                 playerManager.targetPlayerTwoPosition = fruitStallFour.transform;
+                playerManager.playerTwoDestinationIdentity = PlayerManager.DestinationType.FRUIT_STALL_FOUR;
             }
             else if (Input.GetKeyDown(KeyCode.F11))
             {
                 playerManager.targetPlayerTwoPosition = fruitStallFive.transform;
+                playerManager.playerTwoDestinationIdentity = PlayerManager.DestinationType.FRUIT_STALL_FIVE;
             }
             else if (Input.GetKeyDown(KeyCode.F12))
             {
                 playerManager.targetPlayerTwoPosition = fruitStallSix.transform;
+                playerManager.playerTwoDestinationIdentity = PlayerManager.DestinationType.FRUIT_STALL_SIX;
             }
         }
     }

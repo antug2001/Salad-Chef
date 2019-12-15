@@ -44,6 +44,13 @@ public class PlayerManager : MonoBehaviour
         playerOneFruitIcon4.SetActive(false);
         playerOneFruitIcon5.SetActive(false);
         playerOneFruitIcon6.SetActive(false);
+
+        playerTwoFruitIcon1.SetActive(false);
+        playerTwoFruitIcon2.SetActive(false);
+        playerTwoFruitIcon3.SetActive(false);
+        playerTwoFruitIcon4.SetActive(false);
+        playerTwoFruitIcon5.SetActive(false);
+        playerTwoFruitIcon6.SetActive(false);
     }
 
     // Update is called once per frame
