@@ -13,3 +13,4 @@ v)1-5 num key to choose customer if intended fruits are collected(6-0 key for se
 vi)player one can throw collection of food using t key(y key for second player),score of 100 will be deducted
 Pop ups for speed for both player will be offered by using s and d key for player one and two respectively
 If customer can be provided with food before time, remaing time will be added to player's clock
+For wrong delivery or late delivery 100 points desucted

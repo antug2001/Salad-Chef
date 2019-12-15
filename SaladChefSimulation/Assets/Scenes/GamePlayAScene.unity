@@ -2768,6 +2768,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 421177863}
+  - component: {fileID: 421177864}
   m_Layer: 0
   m_Name: Customers
   m_TagString: Untagged
@@ -2795,6 +2796,59 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &421177864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421177862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cfa7525b415346458d5369430a5d55c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fruitObjectIcon1:
+  - {fileID: 818991247}
+  - {fileID: 203608675}
+  - {fileID: 1567243978}
+  - {fileID: 996058491}
+  - {fileID: 1338573268}
+  - {fileID: 882628582}
+  fruitObjectIcon2:
+  - {fileID: 1239456180}
+  - {fileID: 1580429770}
+  - {fileID: 1662075519}
+  - {fileID: 2102318062}
+  - {fileID: 1123033687}
+  - {fileID: 24229810}
+  fruitObjectIcon3:
+  - {fileID: 1880795781}
+  - {fileID: 511625131}
+  - {fileID: 1492720569}
+  - {fileID: 1202474667}
+  - {fileID: 356379958}
+  - {fileID: 2051547517}
+  fruitObjectIcon4:
+  - {fileID: 1904921651}
+  - {fileID: 198103249}
+  - {fileID: 254898986}
+  - {fileID: 294721105}
+  - {fileID: 1948820209}
+  - {fileID: 818644533}
+  fruitObjectIcon5:
+  - {fileID: 2122801311}
+  - {fileID: 228729339}
+  - {fileID: 1911899390}
+  - {fileID: 1853528077}
+  - {fileID: 1809626104}
+  - {fileID: 424248959}
+  - {fileID: 1963350945}
+  healthBarChopC1: {fileID: 1963350945}
+  healthBarChopC2: {fileID: 6545545}
+  healthBarChopC3: {fileID: 1277964017}
+  healthBarChopC4: {fileID: 1696810126}
+  healthBarChopC5: {fileID: 1206848153}
 --- !u!1 &424248959
 GameObject:
   m_ObjectHideFlags: 0
@@ -3605,7 +3659,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 806397978}
-  - component: {fileID: 806397977}
   - component: {fileID: 806397976}
   m_Layer: 0
   m_Name: GameCoordinator
@@ -3644,18 +3697,6 @@ MonoBehaviour:
   plateTable: {fileID: 1578051899}
   chopBoards: {fileID: 864441542}
   players: {fileID: 1373439393}
---- !u!114 &806397977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 806397975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cfa7525b415346458d5369430a5d55c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &806397978
 Transform:
   m_ObjectHideFlags: 0
@@ -6565,6 +6606,7 @@ GameObject:
   - component: {fileID: 1578051902}
   - component: {fileID: 1578051901}
   - component: {fileID: 1578051900}
+  - component: {fileID: 1578051904}
   m_Layer: 0
   m_Name: Plates
   m_TagString: Untagged
@@ -6646,6 +6688,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &1578051904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578051899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63555bdf10fda174dbfbcca906b7b9a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  players: {fileID: 1373439393}
+  plateCollectedPlayerOne: 0
+  plateCollectedPlayerTwo: 0
 --- !u!1 &1580429770
 GameObject:
   m_ObjectHideFlags: 0

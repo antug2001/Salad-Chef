@@ -48,9 +48,9 @@ public class ChoppingBoardManager : MonoBehaviour
                 else
                 {
                     print("chopping " + playerManager.playerOneFoodInHand);
-                    playerManager.playerOneFoodInHand = 0;
-                    playerManager.DisableAllFruitIconsP1();
-                    fruitStallManager.ResetPlayerFruitBasketP1();
+                    //playerManager.playerOneFoodInHand = 0;
+                    //playerManager.DisableAllFruitIconsP1();
+                    //fruitStallManager.ResetPlayerFruitBasketP1();
                     startTime = Time.time;
                     isChoppingPlayerOne = true;
                     StartCoroutine("CompleteChoppingProcessP1");
@@ -72,9 +72,9 @@ public class ChoppingBoardManager : MonoBehaviour
                 else
                 {
                     print("chopping2 " + playerManager.playerTwoFoodInHand);
-                    playerManager.playerTwoFoodInHand = 0;
-                    playerManager.DisableAllFruitIconsP2();
-                    fruitStallManager.ResetPlayerFruitBasketP2();
+                    //playerManager.playerTwoFoodInHand = 0;
+                    //playerManager.DisableAllFruitIconsP2();
+                    //fruitStallManager.ResetPlayerFruitBasketP2();
                     startTime = Time.time;
                     isChoppingPlayerTwo = true;
                     StartCoroutine("CompleteChoppingProcessP2");

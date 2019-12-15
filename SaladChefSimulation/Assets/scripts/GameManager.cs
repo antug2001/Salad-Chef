@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
         choppingBoardManager = choppingBoards.GetComponent<ChoppingBoardManager>();
         plateTablelManager = plateTable.GetComponent<PlateTableManager>();
         choppingBoardManager = choppingBoards.GetComponent<ChoppingBoardManager>();
+        plateTablelManager = plateTable.GetComponent<PlateTableManager>();
     }
 
     // Update is called once per frame
@@ -39,5 +40,6 @@ public class GameManager : MonoBehaviour
         fruitStallManager.HandleFruitStallManagement();
         trashCansManager.HandleTrashCansFeatures();
         choppingBoardManager.HandleChopperTablesFeatures();
+        plateTablelManager.HandlePlateTableFeatures();
     }
 }

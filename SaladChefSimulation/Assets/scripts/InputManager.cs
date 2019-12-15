@@ -115,6 +115,11 @@ public class InputManager : MonoBehaviour
                 playerManager.targetPlayerOnePosition = choppingBoardOne.transform;
                 playerManager.playerOneDestinationIdentity = PlayerManager.DestinationType.CHOPPING_BOARD_ONE;
             }
+            else if (Input.GetKeyDown(KeyCode.P))
+            {
+                playerManager.targetPlayerOnePosition =plateTable.transform;
+                playerManager.playerOneDestinationIdentity = PlayerManager.DestinationType.PLATE_TABLES;
+            }
         }
         //input key map for second player
         if (playerManager.isMovementAllowedPlayerTwo)
@@ -178,6 +183,11 @@ public class InputManager : MonoBehaviour
             {
                 playerManager.targetPlayerTwoPosition = choppingBoardTwo.transform;
                 playerManager.playerTwoDestinationIdentity = PlayerManager.DestinationType.CHOPPING_BOARD_TWO;
+            }
+            else if (Input.GetKeyDown(KeyCode.Q))
+            {
+                playerManager.targetPlayerTwoPosition = plateTable.transform;
+                playerManager.playerTwoDestinationIdentity = PlayerManager.DestinationType.PLATE_TABLES;
             }
         }
     }
