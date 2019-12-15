@@ -21,18 +21,21 @@ public class InputManager : MonoBehaviour
     public GameObject trashCanOne;
     public GameObject trashCanTwo;
     public GameObject plateTable;
-    
+    public GameObject chopBoards;
+
     private float ZoomAmount = 0;
     private float MaxToClamp = 10;
     private float ROTSpeed = 1;
     private Vector3 touchStart;
     private float groundZ = 0;
     private PlayerManager playerManager;
+    private ChoppingBoardManager chopBoardManager;
     public GameObject players;
     // Start is called before the first frame update
     void Start()
     {
         playerManager = players.GetComponent<PlayerManager>();
+        chopBoardManager = chopBoards.GetComponent<ChoppingBoardManager>();
     }
 
     // Update is called once per frame
@@ -43,10 +46,10 @@ public class InputManager : MonoBehaviour
 
     public void HandlePlayersMovementTrack()
     {
-        if (Input.GetKeyDown(KeyCode.Return) && !playerManager.isMovementAllowedPlayerOne)
+        if (Input.GetKeyDown(KeyCode.Return) && !playerManager.isMovementAllowedPlayerOne && !chopBoardManager.isChoppingPlayerOne)
             playerManager.isMovementAllowedPlayerOne = true;
 
-        if (Input.GetKeyDown(KeyCode.Space) && !playerManager.isMovementAllowedPlayerTwo)
+        if (Input.GetKeyDown(KeyCode.Space) && !playerManager.isMovementAllowedPlayerTwo && !chopBoardManager.isChoppingPlayerTwo)
             playerManager.isMovementAllowedPlayerTwo = true;
 
         if (playerManager.isMovementAllowedPlayerOne)
@@ -107,6 +110,11 @@ public class InputManager : MonoBehaviour
                 playerManager.targetPlayerOnePosition = trashCanOne.transform;
                 playerManager.playerOneDestinationIdentity = PlayerManager.DestinationType.TRASH_CAN_ONE;
             }
+            else if (Input.GetKeyDown(KeyCode.C))
+            {
+                playerManager.targetPlayerOnePosition = choppingBoardOne.transform;
+                playerManager.playerOneDestinationIdentity = PlayerManager.DestinationType.CHOPPING_BOARD_ONE;
+            }
         }
         //input key map for second player
         if (playerManager.isMovementAllowedPlayerTwo)
@@ -165,6 +173,11 @@ public class InputManager : MonoBehaviour
             {
                 playerManager.targetPlayerTwoPosition = trashCanTwo.transform;
                 playerManager.playerTwoDestinationIdentity = PlayerManager.DestinationType.TRASH_CAN_TWO;
+            }
+            else if (Input.GetKeyDown(KeyCode.V))
+            {
+                playerManager.targetPlayerTwoPosition = choppingBoardTwo.transform;
+                playerManager.playerTwoDestinationIdentity = PlayerManager.DestinationType.CHOPPING_BOARD_TWO;
             }
         }
     }

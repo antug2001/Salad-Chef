@@ -503,7 +503,7 @@ Transform:
   m_GameObject: {fileID: 40841657}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.11, y: 1.6000004, z: 0.436564}
-  m_LocalScale: {x: 8.604239, y: 6.15344, z: 2.3181999}
+  m_LocalScale: {x: 8.67, y: 6.15344, z: 2.3181999}
   m_Children: []
   m_Father: {fileID: 1719810185}
   m_RootOrder: 1
@@ -647,6 +647,85 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 53373036}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &59320860
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 59320861}
+  - component: {fileID: 59320863}
+  - component: {fileID: 59320862}
+  m_Layer: 5
+  m_Name: ChopBoardErrorP1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &59320861
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59320860}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1498537791}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 4.5, y: 133}
+  m_SizeDelta: {x: 870.1, y: 121.1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &59320862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59320860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.9245283, g: 0.15729684, b: 0.100302614, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 40
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 4
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Player ONE has nothing to chop
+--- !u!222 &59320863
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59320860}
+  m_CullTransparentMesh: 0
 --- !u!1 &115047181
 GameObject:
   m_ObjectHideFlags: 0
@@ -2315,6 +2394,85 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &301734840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 301734841}
+  - component: {fileID: 301734843}
+  - component: {fileID: 301734842}
+  m_Layer: 5
+  m_Name: ChopBoardErrorP2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &301734841
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301734840}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1498537791}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 4.5, y: 35}
+  m_SizeDelta: {x: 870.1, y: 121.1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &301734842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301734840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.05090782, g: 0.1277714, b: 0.8301887, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 40
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 4
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Player TWO has nothing to chop
+--- !u!222 &301734843
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301734840}
+  m_CullTransparentMesh: 0
 --- !u!1 &341578669
 GameObject:
   m_ObjectHideFlags: 0
@@ -3484,6 +3642,7 @@ MonoBehaviour:
   trashCanOne: {fileID: 896076388}
   trashCanTwo: {fileID: 927668902}
   plateTable: {fileID: 1578051899}
+  chopBoards: {fileID: 864441542}
   players: {fileID: 1373439393}
 --- !u!114 &806397977
 MonoBehaviour:
@@ -3901,6 +4060,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 864441543}
+  - component: {fileID: 864441544}
   m_Layer: 0
   m_Name: ChoppingBoards
   m_TagString: Untagged
@@ -3924,6 +4084,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &864441544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864441542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22cd9d84ca967e24eb80d3f01d1895d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  players: {fileID: 1373439393}
+  fruitStalls: {fileID: 1068097303}
+  errorMessageNothingToChopP1: {fileID: 59320860}
+  errorMessageNothingToChopP2: {fileID: 301734840}
+  healthBarChopP1: {fileID: 568816902}
+  healthBarChopP2: {fileID: 40841657}
+  isChoppingPlayerOne: 0
+  isChoppingPlayerTwo: 0
 --- !u!1 &882628582
 GameObject:
   m_ObjectHideFlags: 0
@@ -4687,6 +4867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a483840facedde49938bfd71da5ceff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerManager: {fileID: 0}
   players: {fileID: 1373439393}
   playerOneFruitS: 
   playerTwoFruitS: 
@@ -6192,6 +6373,8 @@ RectTransform:
   - {fileID: 1179134900}
   - {fileID: 1067086496}
   - {fileID: 189558978}
+  - {fileID: 59320861}
+  - {fileID: 301734841}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

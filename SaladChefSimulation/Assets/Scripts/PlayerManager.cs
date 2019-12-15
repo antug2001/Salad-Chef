@@ -78,7 +78,8 @@ public class PlayerManager : MonoBehaviour
             print("reached one");
             playerOneDestinationReached = true;
             targetPlayerOnePosition = targetTransform = null;
-            isMovementAllowedPlayerOne = false;
+           // if(playerOneDestinationIdentity != PlayerManager.DestinationType.CHOPPING_BOARD_ONE)
+                isMovementAllowedPlayerOne = false;
         }
     }
 
@@ -93,7 +94,8 @@ public class PlayerManager : MonoBehaviour
             print("reached two");
             playerTwoDestinationReached = true;
             targetPlayerTwoPosition = targetTransform = null;
-            isMovementAllowedPlayerTwo = false;
+            //if(playerTwoDestinationIdentity != PlayerManager.DestinationType.CHOPPING_BOARD_TWO)
+                isMovementAllowedPlayerTwo = false;
         }
     }
 
