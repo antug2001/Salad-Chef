@@ -21,6 +21,7 @@ public class InputManager : MonoBehaviour
     public GameObject trashCanOne;
     public GameObject trashCanTwo;
     public GameObject plateTable;
+    
     private float ZoomAmount = 0;
     private float MaxToClamp = 10;
     private float ROTSpeed = 1;
@@ -100,7 +101,12 @@ public class InputManager : MonoBehaviour
             {
                 playerManager.targetPlayerOnePosition = fruitStallSix.transform;
                 playerManager.playerOneDestinationIdentity = PlayerManager.DestinationType.FRUIT_STALL_SIX;
-            }            
+            }
+            else if (Input.GetKeyDown(KeyCode.T))
+            {
+                playerManager.targetPlayerOnePosition = trashCanOne.transform;
+                playerManager.playerOneDestinationIdentity = PlayerManager.DestinationType.TRASH_CAN_ONE;
+            }
         }
         //input key map for second player
         if (playerManager.isMovementAllowedPlayerTwo)
@@ -154,6 +160,11 @@ public class InputManager : MonoBehaviour
             {
                 playerManager.targetPlayerTwoPosition = fruitStallSix.transform;
                 playerManager.playerTwoDestinationIdentity = PlayerManager.DestinationType.FRUIT_STALL_SIX;
+            }
+            else if (Input.GetKeyDown(KeyCode.Y))
+            {
+                playerManager.targetPlayerTwoPosition = trashCanTwo.transform;
+                playerManager.playerTwoDestinationIdentity = PlayerManager.DestinationType.TRASH_CAN_TWO;
             }
         }
     }

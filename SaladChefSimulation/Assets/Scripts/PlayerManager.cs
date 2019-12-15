@@ -6,7 +6,7 @@ public class PlayerManager : MonoBehaviour
 {
 
     public GameObject playerOne;
-    public GameObject playerTwo;    
+    public GameObject playerTwo;
     private float speedPlayerOne = 3.0f;
     private float speedPlayerTwo = 3.0f;
     public GameObject playerOneFruitIcon1, playerOneFruitIcon2, playerOneFruitIcon3, playerOneFruitIcon4, playerOneFruitIcon5, playerOneFruitIcon6;
@@ -17,16 +17,16 @@ public class PlayerManager : MonoBehaviour
     [HideInInspector]
     public Transform targetPlayerTwoPosition;
     [HideInInspector]
-    public bool isMovementAllowedPlayerOne = false , playerOneDestinationReached = false;
+    public bool isMovementAllowedPlayerOne = false, playerOneDestinationReached = false;
     [HideInInspector]
     public bool isMovementAllowedPlayerTwo = false, playerTwoDestinationReached = false;
     [HideInInspector]
     public enum DestinationType { FRUIT_STALL_ONE, FRUIT_STALL_TWO, FRUIT_STALL_THREE, FRUIT_STALL_FOUR, FRUIT_STALL_FIVE, FRUIT_STALL_SIX,
-                CUSTOMER_ONE, CUSTOMER_TWO, CUSTOMER_THREE, CUSTOMER_FOUR, CUSTOMER_FIVE,
-                CHOPPING_BOARD_ONE, CHOPPING_BOARD_TWO, TRASH_CAN_ONE, TRASH_CAN_TWO, PLATE_TABLES, NONE };
+        CUSTOMER_ONE, CUSTOMER_TWO, CUSTOMER_THREE, CUSTOMER_FOUR, CUSTOMER_FIVE,
+        CHOPPING_BOARD_ONE, CHOPPING_BOARD_TWO, TRASH_CAN_ONE, TRASH_CAN_TWO, PLATE_TABLES, NONE };
     [HideInInspector]
     public DestinationType playerOneDestinationIdentity, playerTwoDestinationIdentity;
-   
+
     //[HideInInspector]
     //public enum PlayerType { PLAYER_ONE, PLAYER_TWO, NONE };
     //[HideInInspector]
@@ -38,13 +38,21 @@ public class PlayerManager : MonoBehaviour
 
     void Start()
     {
+        DisableAllFruitIconsP1();
+        DisableAllFruitIconsP2();
+    }
+
+    public void DisableAllFruitIconsP1()
+    {
         playerOneFruitIcon1.SetActive(false);
         playerOneFruitIcon2.SetActive(false);
         playerOneFruitIcon3.SetActive(false);
         playerOneFruitIcon4.SetActive(false);
         playerOneFruitIcon5.SetActive(false);
         playerOneFruitIcon6.SetActive(false);
-
+    }
+    public void DisableAllFruitIconsP2()
+    {
         playerTwoFruitIcon1.SetActive(false);
         playerTwoFruitIcon2.SetActive(false);
         playerTwoFruitIcon3.SetActive(false);
@@ -52,7 +60,6 @@ public class PlayerManager : MonoBehaviour
         playerTwoFruitIcon5.SetActive(false);
         playerTwoFruitIcon6.SetActive(false);
     }
-
     // Update is called once per frame
     void Update()
     {

@@ -36,5 +36,6 @@ public class GameManager : MonoBehaviour
         inputManager.HandlePlayersMovementTrack();
 
         fruitStallManager.HandleFruitStallManagement();
+        trashCansManager.HandleTrashCansFeatures();
     }
 }
