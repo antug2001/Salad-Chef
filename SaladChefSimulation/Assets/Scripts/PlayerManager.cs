@@ -81,6 +81,9 @@ public class PlayerManager : MonoBehaviour
            // if(playerOneDestinationIdentity != PlayerManager.DestinationType.CHOPPING_BOARD_ONE)
                 isMovementAllowedPlayerOne = false;
         }
+        else
+            playerOneDestinationReached = false;
+
     }
 
     private void HandlePlayerTwoMovement(Transform currentTransform, Transform targetTransform)
@@ -97,6 +100,8 @@ public class PlayerManager : MonoBehaviour
             //if(playerTwoDestinationIdentity != PlayerManager.DestinationType.CHOPPING_BOARD_TWO)
                 isMovementAllowedPlayerTwo = false;
         }
+        else
+            playerTwoDestinationReached = false;
     }
 
 }

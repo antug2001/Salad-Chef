@@ -4,12 +4,22 @@ using UnityEngine;
 
 public class CustomerManager : MonoBehaviour
 {
-    
+    private PlateTableManager plateTableManager;
+    private FruitStallManager fruitManager;
+    private PlayerManager playerManager;
+    private MiscelleniousManager miscManager;
+    private ChoppingBoardManager choppingBoardManager;
+    public GameObject players;
+    public GameObject misc;
+    public GameObject fruit;
+    public GameObject plate;
+    public GameObject chopBoard;
+    public GameObject errorMessageWrongDeliveryP1, errorMessageWrongDeliveryP2, duccessfulDeliveryP1, duccessfulDeliveryP2;
     const int NO_OF_TOTAL_CUSTOMER = 5;
     const int TOTAL_FRUIT_TYPE = 6;
     const int NO_OF_TOTAL_FOOD = 3;
-    const float MINIMUM_TIME = 15.0F;
-    const float MAXIMUM_TIME = 45.0F;
+    const float MINIMUM_TIME = 45.0F;
+    const float MAXIMUM_TIME = 90.0F;
     public GameObject[] fruitObjectIcon1;
     public GameObject[]fruitObjectIcon2;
     public GameObject[]fruitObjectIcon3;
@@ -22,6 +32,15 @@ public class CustomerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        errorMessageWrongDeliveryP1.SetActive(false);
+        errorMessageWrongDeliveryP2.SetActive(false);
+        duccessfulDeliveryP1.SetActive(false); 
+        duccessfulDeliveryP2.SetActive(false);
+        plateTableManager = plate.GetComponent<PlateTableManager>();
+        fruitManager = fruit.GetComponent<FruitStallManager>();
+        playerManager = players.GetComponent<PlayerManager>();
+        miscManager = misc.GetComponent<MiscelleniousManager>();
+        choppingBoardManager = chopBoard.GetComponent<ChoppingBoardManager>();
         //print("s "+ fruitObjectIcon1[0]);
         //print("d "+ fruitObjectIcon[0, 0]);
         initialLengthC1 = healthBarChopC1.transform.localScale.x;
@@ -83,7 +102,7 @@ public class CustomerManager : MonoBehaviour
                     break;
             }
             
-            print("customer "+i+" time " + customerWaitTime[i]);
+            //print("customer "+i+" time " + customerWaitTime[i]);
         }
     }
     public GameObject healthBarChopC1, healthBarChopC2, healthBarChopC3, healthBarChopC4, healthBarChopC5;
@@ -177,10 +196,10 @@ public class CustomerManager : MonoBehaviour
                 customerFruitRequirement[i, foodCounter] = val;
                 fruitObjectIcon[i, customerFruitRequirement[i, foodCounter]].SetActive(true);
                 foodCounter++;
-                print("customer " + i + " foodcounter " + foodCounter + " value " + val);
+               // print("customer " + i + " foodcounter " + foodCounter + " value " + val);
             }
-            else
-                print("REPEAT");
+            //else
+            //    print("REPEAT");
             if (foodCounter == NO_OF_TOTAL_FOOD)
                 break;
         }
@@ -217,7 +236,136 @@ public class CustomerManager : MonoBehaviour
                     fruitObjectIcon[i, j].SetActive(false);
                 }
                 GenerateUniqueValue(i);
+                miscManager.playerOneScore -= 100;
+                miscManager.playerTwoScore -= 100;
             }
         }
+    }
+
+    public void HandleCustomerActivities()
+    {
+        if (playerManager.playerOneDestinationIdentity == PlayerManager.DestinationType.CUSTOMER_ONE
+            || playerManager.playerOneDestinationIdentity == PlayerManager.DestinationType.CUSTOMER_TWO
+            || playerManager.playerOneDestinationIdentity == PlayerManager.DestinationType.CUSTOMER_THREE
+            || playerManager.playerOneDestinationIdentity == PlayerManager.DestinationType.CUSTOMER_FOUR
+            || playerManager.playerOneDestinationIdentity == PlayerManager.DestinationType.CUSTOMER_FIVE)
+        {   
+            if (playerManager.playerOneDestinationReached)
+            {
+                playerManager.playerOneDestinationReached = false;
+                bool wrongDelivery = false;
+                int wrongDeliveryCounter = 0;
+                //playerManager.playerTwoDestinationIdentity = PlayerManager.DestinationType.CUSTOMER_ONE
+                for (int i=0;i< NO_OF_TOTAL_FOOD; i++)
+                {
+                    print("player fruit collection " + fruitManager.playerOneFruitS[i]);
+                    print(" customer fruit requirement "+customerFruitRequirement[(int)playerManager.playerOneDestinationIdentity - TOTAL_FRUIT_TYPE, i]);
+                    if(
+                            !(fruitManager.playerOneFruitS[i]== (byte)customerFruitRequirement[(int)playerManager.playerOneDestinationIdentity - TOTAL_FRUIT_TYPE, 0]
+                            ||
+                            fruitManager.playerOneFruitS[i] == (byte)customerFruitRequirement[(int)playerManager.playerOneDestinationIdentity - TOTAL_FRUIT_TYPE, 1]
+                            ||
+                            fruitManager.playerOneFruitS[i] == (byte)customerFruitRequirement[(int)playerManager.playerOneDestinationIdentity - TOTAL_FRUIT_TYPE, 2])
+                        )
+                    {
+                        wrongDelivery = true;
+                        wrongDeliveryCounter++;
+                    }
+                }
+                if (!choppingBoardManager.choppingDonePlayerOne)
+                    wrongDelivery = true;               
+                choppingBoardManager.choppingDonePlayerOne = false;
+                if (!plateTableManager.plateCollectedPlayerOne)
+                    wrongDelivery = true;
+                plateTableManager.plateCollectedPlayerOne = false;
+                if (wrongDelivery)
+                {
+                    errorMessageWrongDeliveryP1.SetActive(true);
+                    Invoke("DisableErrorMessageP1", 2.0f);
+                    print("delivery error");
+                    miscManager.playerOneScore -= 100 * wrongDeliveryCounter;
+                }
+                else
+                {
+                    duccessfulDeliveryP1.SetActive(true);
+                    Invoke("SuccessfulDeliveryMessageP1", 2.0f);
+                    miscManager.playerOneScore += 500;
+                    miscManager.playerOneScore+=(int)(100*(customerWaitTime[(int)playerManager.playerOneDestinationIdentity - TOTAL_FRUIT_TYPE] - (Time.time - customerWaitTimer[(int)playerManager.playerOneDestinationIdentity - TOTAL_FRUIT_TYPE])));  
+                }
+                playerManager.playerOneFoodInHand = 0;
+                print("222222222222222");
+                playerManager.DisableAllFruitIconsP1();
+                fruitManager.ResetPlayerFruitBasketP1();
+            }
+        }
+
+        if (playerManager.playerTwoDestinationIdentity == PlayerManager.DestinationType.CUSTOMER_ONE
+           || playerManager.playerTwoDestinationIdentity == PlayerManager.DestinationType.CUSTOMER_TWO
+           || playerManager.playerTwoDestinationIdentity == PlayerManager.DestinationType.CUSTOMER_THREE
+           || playerManager.playerTwoDestinationIdentity == PlayerManager.DestinationType.CUSTOMER_FOUR
+           || playerManager.playerTwoDestinationIdentity == PlayerManager.DestinationType.CUSTOMER_FIVE)
+        {
+            if (playerManager.playerTwoDestinationReached)
+            {
+                playerManager.playerTwoDestinationReached = false;
+                bool wrongDelivery = false;
+                int wrongDeliveryCounter = 0;
+                //playerManager.playerTwoDestinationIdentity = PlayerManager.DestinationType.CUSTOMER_ONE
+                for (int i = 0; i < NO_OF_TOTAL_FOOD; i++)
+                {
+                    if (
+                            !(fruitManager.playerTwoFruitS[i] != (byte)customerFruitRequirement[(int)playerManager.playerTwoDestinationIdentity - TOTAL_FRUIT_TYPE, 0]
+                            ||
+                            fruitManager.playerTwoFruitS[i] != (byte)customerFruitRequirement[(int)playerManager.playerTwoDestinationIdentity - TOTAL_FRUIT_TYPE, 1]
+                            ||
+                            fruitManager.playerTwoFruitS[i] != (byte)customerFruitRequirement[(int)playerManager.playerTwoDestinationIdentity - TOTAL_FRUIT_TYPE, 2])
+                        )
+                    {
+                        wrongDelivery = true;
+                        wrongDeliveryCounter++;
+                    }
+                }
+                if (!choppingBoardManager.choppingDonePlayerTwo)
+                    wrongDelivery = true;
+                choppingBoardManager.choppingDonePlayerTwo = false;
+                if (!plateTableManager.plateCollectedPlayerTwo)
+                    wrongDelivery = true;
+                plateTableManager.plateCollectedPlayerTwo = false;
+                if (wrongDelivery)
+                {
+                    errorMessageWrongDeliveryP2.SetActive(true);
+                    Invoke("DisableErrorMessageP2", 2.0f);
+                    print("delivery error");
+                    miscManager.playerTwoScore -= 100 * wrongDeliveryCounter;
+                }
+                else
+                {
+                    duccessfulDeliveryP2.SetActive(true);
+                    Invoke("SuccessfulDeliveryP2", 2.0f);
+                    miscManager.playerTwoScore += 500;
+                    miscManager.playerTwoScore += (int)(100 * (customerWaitTime[(int)playerManager.playerTwoDestinationIdentity - TOTAL_FRUIT_TYPE] - (Time.time - customerWaitTimer[(int)playerManager.playerTwoDestinationIdentity - TOTAL_FRUIT_TYPE])));
+                }
+                playerManager.playerTwoFoodInHand = 0;
+                playerManager.DisableAllFruitIconsP2();
+                fruitManager.ResetPlayerFruitBasketP2();
+            }
+        }
+    }
+
+    void DisableErrorMessageP1()
+    {
+        errorMessageWrongDeliveryP1.SetActive(false);
+    }
+    void DisableErrorMessageP2()
+    {
+        errorMessageWrongDeliveryP2.SetActive(false);
+    }
+    void SuccessfulDeliveryMessageP1()
+    {
+        duccessfulDeliveryP1.SetActive(false);
+    }
+    void SuccessfulDeliveryP2()
+    {
+        duccessfulDeliveryP2.SetActive(false);
     }
 }

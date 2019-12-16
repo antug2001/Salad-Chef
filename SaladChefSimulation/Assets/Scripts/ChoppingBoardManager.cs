@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ChoppingBoardManager : MonoBehaviour
 {
-
+    [HideInInspector]
+    public bool choppingDonePlayerOne=false, choppingDonePlayerTwo = false;
     private PlayerManager playerManager;
     public GameObject players;
     public GameObject fruitStalls;
@@ -90,11 +91,12 @@ public class ChoppingBoardManager : MonoBehaviour
         while (t < 1.0f)
         {
             t = (Time.time - startTime) / duration;
-            print(""+ playerManager.isMovementAllowedPlayerOne);
+           // print(""+ playerManager.isMovementAllowedPlayerOne);
             healthBarChopP1.transform.localScale = new Vector3(initialLengthP1- initialLengthP1 * t, healthBarChopP1.transform.localScale.y, healthBarChopP1.transform.localScale.z);
             yield return null;// new WaitForSeconds(duration);
         }
         isChoppingPlayerOne = false;
+        choppingDonePlayerOne = true;
         healthBarChopP1.transform.localScale = new Vector3(initialLengthP1 , healthBarChopP1.transform.localScale.y, healthBarChopP1.transform.localScale.z);
     }
 
@@ -104,12 +106,13 @@ public class ChoppingBoardManager : MonoBehaviour
         while (t < 1.0f)
         {
             t = (Time.time - startTime) / duration;
-            print("" + t);
+           // print("" + t);
             healthBarChopP2.transform.localScale = new Vector3(initialLengthP2 - initialLengthP2 * t, healthBarChopP2.transform.localScale.y,
                                                                healthBarChopP2.transform.localScale.z);
             yield return null;// new WaitForSeconds(duration);
         }
         isChoppingPlayerTwo = false;
+        choppingDonePlayerTwo = true;
         healthBarChopP2.transform.localScale = new Vector3(initialLengthP2, healthBarChopP2.transform.localScale.y,
                                                                healthBarChopP2.transform.localScale.z);
     }

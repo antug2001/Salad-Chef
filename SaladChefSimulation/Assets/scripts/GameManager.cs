@@ -25,9 +25,8 @@ public class GameManager : MonoBehaviour
         customersManager = customers.GetComponent<CustomerManager>();
         trashCansManager = trashCans.GetComponent<TrashCanManager>();
         choppingBoardManager = choppingBoards.GetComponent<ChoppingBoardManager>();
-        plateTablelManager = plateTable.GetComponent<PlateTableManager>();
-        choppingBoardManager = choppingBoards.GetComponent<ChoppingBoardManager>();
-        plateTablelManager = plateTable.GetComponent<PlateTableManager>();
+        plateTablelManager = plateTable.GetComponent<PlateTableManager>();        
+        
     }
 
     // Update is called once per frame
@@ -41,5 +40,6 @@ public class GameManager : MonoBehaviour
         trashCansManager.HandleTrashCansFeatures();
         choppingBoardManager.HandleChopperTablesFeatures();
         plateTablelManager.HandlePlateTableFeatures();
+        customersManager.HandleCustomerActivities();
     }
 }

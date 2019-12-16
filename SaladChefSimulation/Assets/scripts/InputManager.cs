@@ -58,22 +58,31 @@ public class InputManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1))
             {
                 playerManager.targetPlayerOnePosition = customerOne.transform;
+                playerManager.playerOneDestinationIdentity = PlayerManager.DestinationType.CUSTOMER_ONE;
+                //print("playerOne curr " + playerManager.playerOne.transform.position+" target "+ playerManager.targetPlayerOnePosition.transform.position);
+                //if (playerManager.playerOneDestinationReached)
+                //    playerManager.playerOneDestinationReached = false;
+                //print("playerOneDestinationReached " + playerManager.playerOneDestinationReached);
             }
             else if (Input.GetKeyDown(KeyCode.Keypad2) || Input.GetKeyDown(KeyCode.Alpha2))
             {
                 playerManager.targetPlayerOnePosition = customerTwo.transform;
+                playerManager.playerOneDestinationIdentity = PlayerManager.DestinationType.CUSTOMER_TWO;
             }
             else if (Input.GetKeyDown(KeyCode.Keypad3) || Input.GetKeyDown(KeyCode.Alpha3))
             {
                 playerManager.targetPlayerOnePosition = customerThree.transform;
+                playerManager.playerOneDestinationIdentity = PlayerManager.DestinationType.CUSTOMER_THREE;
             }
             else if (Input.GetKeyDown(KeyCode.Keypad4) || Input.GetKeyDown(KeyCode.Alpha4))
             {
                 playerManager.targetPlayerOnePosition = customerFour.transform;
+                playerManager.playerOneDestinationIdentity = PlayerManager.DestinationType.CUSTOMER_FOUR;
             }
             else if (Input.GetKeyDown(KeyCode.Keypad5) || Input.GetKeyDown(KeyCode.Alpha5))
             {
                 playerManager.targetPlayerOnePosition = customerFive.transform;
+                playerManager.playerOneDestinationIdentity = PlayerManager.DestinationType.CUSTOMER_FIVE;
             }
             else if (Input.GetKeyDown(KeyCode.F1))
             {
@@ -126,23 +135,28 @@ public class InputManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Keypad6) || Input.GetKeyDown(KeyCode.Alpha6))
             {
-                playerManager.targetPlayerTwoPosition = customerOne.transform; 
+                playerManager.targetPlayerTwoPosition = customerOne.transform;
+                playerManager.playerTwoDestinationIdentity = PlayerManager.DestinationType.CUSTOMER_ONE;
             }
             else if (Input.GetKeyDown(KeyCode.Keypad7) || Input.GetKeyDown(KeyCode.Alpha7))
             {
                 playerManager.targetPlayerTwoPosition = customerTwo.transform;
+                playerManager.playerTwoDestinationIdentity = PlayerManager.DestinationType.CUSTOMER_TWO;
             }
             else if (Input.GetKeyDown(KeyCode.Keypad8) || Input.GetKeyDown(KeyCode.Alpha8))
             {
                 playerManager.targetPlayerTwoPosition = customerThree.transform;
+                playerManager.playerTwoDestinationIdentity = PlayerManager.DestinationType.CUSTOMER_THREE;
             }
             else if (Input.GetKeyDown(KeyCode.Keypad9) || Input.GetKeyDown(KeyCode.Alpha9))
             {
                 playerManager.targetPlayerTwoPosition = customerFour.transform;
+                playerManager.playerTwoDestinationIdentity = PlayerManager.DestinationType.CUSTOMER_FOUR;
             }
             else if (Input.GetKeyDown(KeyCode.Keypad0) || Input.GetKeyDown(KeyCode.Alpha0))
             {
                 playerManager.targetPlayerTwoPosition = customerFive.transform;
+                playerManager.playerTwoDestinationIdentity = PlayerManager.DestinationType.CUSTOMER_FIVE;
             }
             else if (Input.GetKeyDown(KeyCode.F7))
             {

@@ -10,10 +10,13 @@ public class TrashCanManager : MonoBehaviour
     public GameObject fruitStalls;
     private FruitStallManager fruitStallManager;
     public GameObject errorMessageNothingToTrashP1, errorMessageNothingToTrashP2;
+    private MiscelleniousManager miscManager;
+    public GameObject misc;
 
     // Start is called before the first frame update
     void Start()
     {
+        miscManager = misc.GetComponent<MiscelleniousManager>();
         fruitStallManager = fruitStalls.GetComponent<FruitStallManager>();
         playerManager = players.GetComponent<PlayerManager>();
         errorMessageNothingToTrashP1.SetActive(false);
@@ -42,7 +45,9 @@ public class TrashCanManager : MonoBehaviour
                 else
                 {
                     print("trashing " + playerManager.playerOneFoodInHand);
+                    miscManager.playerOneScore -= 100;
                     playerManager.playerOneFoodInHand = 0;
+                    print("1111111111");
                     playerManager.DisableAllFruitIconsP1();
                     fruitStallManager.ResetPlayerFruitBasketP1();
                 }
@@ -61,6 +66,7 @@ public class TrashCanManager : MonoBehaviour
                 }
                 else
                 {
+                    miscManager.playerTwoScore -= 100;
                     playerManager.playerTwoFoodInHand = 0;
                     playerManager.DisableAllFruitIconsP2();
                     fruitStallManager.ResetPlayerFruitBasketP2();

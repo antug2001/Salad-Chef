@@ -24,7 +24,7 @@ public class PlateTableManager : MonoBehaviour
 
     public void HandlePlateTableFeatures()
     {
-        if (playerManager.playerOneDestinationIdentity == PlayerManager.DestinationType.CHOPPING_BOARD_ONE)
+        if (playerManager.playerOneDestinationIdentity == PlayerManager.DestinationType.PLATE_TABLES)
         {
             if (playerManager.playerOneDestinationReached)
             {
@@ -32,10 +32,13 @@ public class PlateTableManager : MonoBehaviour
                 plateCollectedPlayerOne = true;
             }
         }
-        if (playerManager.playerTwoDestinationReached)
+        if (playerManager.playerTwoDestinationIdentity == PlayerManager.DestinationType.PLATE_TABLES)
         {
-            playerManager.playerTwoDestinationReached = false;
-            plateCollectedPlayerTwo = true;
+            if (playerManager.playerTwoDestinationReached)
+            {
+                playerManager.playerTwoDestinationReached = false;
+                plateCollectedPlayerTwo = true;
+            }
         }
     }
 }
