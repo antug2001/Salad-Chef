@@ -22,6 +22,8 @@ public class InputManager : MonoBehaviour
     public GameObject trashCanTwo;
     public GameObject plateTable;
     public GameObject chopBoards;
+    public GameObject speedBoosterOne;
+    public GameObject speedBoosterTwo;
 
     private float ZoomAmount = 0;
     private float MaxToClamp = 10;
@@ -129,6 +131,11 @@ public class InputManager : MonoBehaviour
                 playerManager.targetPlayerOnePosition =plateTable.transform;
                 playerManager.playerOneDestinationIdentity = PlayerManager.DestinationType.PLATE_TABLES;
             }
+            else if (Input.GetKeyDown(KeyCode.S))
+            {
+                playerManager.targetPlayerOnePosition = speedBoosterOne.transform;
+                playerManager.playerOneDestinationIdentity = PlayerManager.DestinationType.SPPED_BOOST_ONE;
+            }
         }
         //input key map for second player
         if (playerManager.isMovementAllowedPlayerTwo)
@@ -202,6 +209,11 @@ public class InputManager : MonoBehaviour
             {
                 playerManager.targetPlayerTwoPosition = plateTable.transform;
                 playerManager.playerTwoDestinationIdentity = PlayerManager.DestinationType.PLATE_TABLES;
+            }
+            else if (Input.GetKeyDown(KeyCode.D))
+            {
+                playerManager.targetPlayerTwoPosition = speedBoosterTwo.transform;
+                playerManager.playerTwoDestinationIdentity = PlayerManager.DestinationType.SPEED_BOOST_TWO;
             }
         }
     }

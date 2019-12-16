@@ -7,8 +7,8 @@ public class PlayerManager : MonoBehaviour
 
     public GameObject playerOne;
     public GameObject playerTwo;
-    private float speedPlayerOne = 3.0f;
-    private float speedPlayerTwo = 3.0f;
+    public float speedPlayerOne = 3.0f;
+    public float speedPlayerTwo = 3.0f;
     public GameObject playerOneFruitIcon1, playerOneFruitIcon2, playerOneFruitIcon3, playerOneFruitIcon4, playerOneFruitIcon5, playerOneFruitIcon6;
     public GameObject playerTwoFruitIcon1, playerTwoFruitIcon2, playerTwoFruitIcon3, playerTwoFruitIcon4, playerTwoFruitIcon5, playerTwoFruitIcon6;
 
@@ -23,7 +23,7 @@ public class PlayerManager : MonoBehaviour
     [HideInInspector]
     public enum DestinationType { FRUIT_STALL_ONE, FRUIT_STALL_TWO, FRUIT_STALL_THREE, FRUIT_STALL_FOUR, FRUIT_STALL_FIVE, FRUIT_STALL_SIX,
         CUSTOMER_ONE, CUSTOMER_TWO, CUSTOMER_THREE, CUSTOMER_FOUR, CUSTOMER_FIVE,
-        CHOPPING_BOARD_ONE, CHOPPING_BOARD_TWO, TRASH_CAN_ONE, TRASH_CAN_TWO, PLATE_TABLES, NONE };
+        CHOPPING_BOARD_ONE, CHOPPING_BOARD_TWO, TRASH_CAN_ONE, TRASH_CAN_TWO, PLATE_TABLES, SPPED_BOOST_ONE, SPEED_BOOST_TWO, NONE };
     [HideInInspector]
     public DestinationType playerOneDestinationIdentity, playerTwoDestinationIdentity;
 

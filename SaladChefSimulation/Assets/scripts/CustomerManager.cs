@@ -290,6 +290,7 @@ public class CustomerManager : MonoBehaviour
                     duccessfulDeliveryP1.SetActive(true);
                     Invoke("SuccessfulDeliveryMessageP1", 2.0f);
                     miscManager.playerOneScore += 500;
+                    miscManager.playerOneTime += (customerWaitTime[(int)playerManager.playerOneDestinationIdentity - TOTAL_FRUIT_TYPE] - (Time.time - customerWaitTimer[(int)playerManager.playerOneDestinationIdentity - TOTAL_FRUIT_TYPE]));
                     miscManager.playerOneScore+=(int)(100*(customerWaitTime[(int)playerManager.playerOneDestinationIdentity - TOTAL_FRUIT_TYPE] - (Time.time - customerWaitTimer[(int)playerManager.playerOneDestinationIdentity - TOTAL_FRUIT_TYPE])));  
                 }
                 playerManager.playerOneFoodInHand = 0;
@@ -343,6 +344,7 @@ public class CustomerManager : MonoBehaviour
                     duccessfulDeliveryP2.SetActive(true);
                     Invoke("SuccessfulDeliveryP2", 2.0f);
                     miscManager.playerTwoScore += 500;
+                    miscManager.playerTwoTime += (customerWaitTime[(int)playerManager.playerTwoDestinationIdentity - TOTAL_FRUIT_TYPE] - (Time.time - customerWaitTimer[(int)playerManager.playerTwoDestinationIdentity - TOTAL_FRUIT_TYPE]));
                     miscManager.playerTwoScore += (int)(100 * (customerWaitTime[(int)playerManager.playerTwoDestinationIdentity - TOTAL_FRUIT_TYPE] - (Time.time - customerWaitTimer[(int)playerManager.playerTwoDestinationIdentity - TOTAL_FRUIT_TYPE])));
                 }
                 playerManager.playerTwoFoodInHand = 0;
