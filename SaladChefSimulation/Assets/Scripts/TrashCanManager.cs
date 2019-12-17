@@ -16,6 +16,7 @@ public class TrashCanManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //necessary initialization regarding trash can
         miscManager = misc.GetComponent<MiscelleniousManager>();
         fruitStallManager = fruitStalls.GetComponent<FruitStallManager>();
         playerManager = players.GetComponent<PlayerManager>();
@@ -36,13 +37,13 @@ public class TrashCanManager : MonoBehaviour
             if (playerManager.playerOneDestinationReached)
             {
                 playerManager.playerOneDestinationReached = false;
-                if (playerManager.playerOneFoodInHand == 0)
+                if (playerManager.playerOneFoodInHand == 0)//if nothing to trash,error message displayed
                 {
                     errorMessageNothingToTrashP1.SetActive(true);
                     Invoke("DisableErrorMessageP1", 2.0f);
                     print("trash error");
                 }
-                else
+                else//after trashing,necessary reinitialization
                 {
                     print("trashing " + playerManager.playerOneFoodInHand);
                     miscManager.playerOneScore -= 100;
@@ -54,7 +55,7 @@ public class TrashCanManager : MonoBehaviour
             }
         }
 
-        if (playerManager.playerTwoDestinationIdentity == PlayerManager.DestinationType.TRASH_CAN_TWO)
+        if (playerManager.playerTwoDestinationIdentity == PlayerManager.DestinationType.TRASH_CAN_TWO)//just same as player one
         {
             if (playerManager.playerTwoDestinationReached)
             {

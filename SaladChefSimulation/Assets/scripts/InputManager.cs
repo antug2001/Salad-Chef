@@ -44,8 +44,14 @@ public class InputManager : MonoBehaviour
     void Update()
     {
         
-    }    
-
+    }
+    //all the keys used in gamee
+    //i)F1-F6 and F7 to F12 for fruit choice for player 1 and 2 respectively
+    //ii)Numeric1-5 and 6-0 for customer choice for player 1 and 2 respectively
+    //iii)key T and Y for trashing the fruit collected intern for player 1 and 2 respectively
+    //iv)key S and D for collecting speed boost up for player 1 and 2 respectively
+    //v)key C and V for reaching chopping table for player 1 and 2 respectively
+    //vi)key P and Q for collecting plate for player 1 and 2 respectively
     public void HandlePlayersMovementTrack()
     {
         if (Input.GetKeyDown(KeyCode.Return) && !playerManager.isMovementAllowedPlayerOne && !chopBoardManager.isChoppingPlayerOne)

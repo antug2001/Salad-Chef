@@ -32,6 +32,7 @@ public class CustomerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //necessary initialization specially customer fruit requirement randomized with time limit
         errorMessageWrongDeliveryP1.SetActive(false);
         errorMessageWrongDeliveryP2.SetActive(false);
         duccessfulDeliveryP1.SetActive(false); 
@@ -66,7 +67,7 @@ public class CustomerManager : MonoBehaviour
         InitiateCustomerFruitRequirement();
        // DisableAllCustomerFoodIcons();
     }
-    void DisableAllCustomerFoodIcons()
+    void DisableAllCustomerFoodIcons()//icons for fruit of customer are reset
     {
         for (int i = 0; i < NO_OF_TOTAL_CUSTOMER; i++)
         {
@@ -77,7 +78,7 @@ public class CustomerManager : MonoBehaviour
             }
         }
     }
-    void InitiateCustomerWaitTime()
+    void InitiateCustomerWaitTime()//coroutine fired for customer's waiting time indication bar
     {
         for(int i=0;i< NO_OF_TOTAL_CUSTOMER; i++)
         {
@@ -107,7 +108,7 @@ public class CustomerManager : MonoBehaviour
     }
     public GameObject healthBarChopC1, healthBarChopC2, healthBarChopC3, healthBarChopC4, healthBarChopC5;
     private float initialLengthC1, initialLengthC2, initialLengthC3, initialLengthC4, initialLengthC5;
-    IEnumerator CompleteTimerProcessC1(int i)
+    IEnumerator CompleteTimerProcessC1(int i)//yielding inside while to allow other process working simultaneously
     {
         float t = 0;
         while (t < 1.0f)
@@ -179,7 +180,7 @@ public class CustomerManager : MonoBehaviour
             GenerateUniqueValue(i);
         }
     }
-    void GenerateUniqueValue( int i )
+    void GenerateUniqueValue( int i )//making sure that fruit requirement list for customer is unique
     {
         int foodCounter = 0;
         while (true)
@@ -205,7 +206,7 @@ public class CustomerManager : MonoBehaviour
         }
     }
     // Update is called once per frame
-    void Update()
+    void Update()//iterating through customer's fruit and time bound generation and tracking
     {
         for (int i = 0; i < NO_OF_TOTAL_CUSTOMER; i++)
         {
@@ -244,6 +245,7 @@ public class CustomerManager : MonoBehaviour
 
     public void HandleCustomerActivities()
     {
+        //if player reaches to any of the customer
         if (playerManager.playerOneDestinationIdentity == PlayerManager.DestinationType.CUSTOMER_ONE
             || playerManager.playerOneDestinationIdentity == PlayerManager.DestinationType.CUSTOMER_TWO
             || playerManager.playerOneDestinationIdentity == PlayerManager.DestinationType.CUSTOMER_THREE
@@ -254,9 +256,8 @@ public class CustomerManager : MonoBehaviour
             {
                 playerManager.playerOneDestinationReached = false;
                 bool wrongDelivery = false;
-                int wrongDeliveryCounter = 0;
-                //playerManager.playerTwoDestinationIdentity = PlayerManager.DestinationType.CUSTOMER_ONE
-                for (int i=0;i< NO_OF_TOTAL_FOOD; i++)
+                int wrongDeliveryCounter = 0;                
+                for (int i=0;i< NO_OF_TOTAL_FOOD; i++)//how many mismatch between fruit collected and requirement are there is calculated
                 {
                     print("player fruit collection " + fruitManager.playerOneFruitS[i]);
                     print(" customer fruit requirement "+customerFruitRequirement[(int)playerManager.playerOneDestinationIdentity - TOTAL_FRUIT_TYPE, i]);
@@ -272,20 +273,20 @@ public class CustomerManager : MonoBehaviour
                         wrongDeliveryCounter++;
                     }
                 }
-                if (!choppingBoardManager.choppingDonePlayerOne)
+                if (!choppingBoardManager.choppingDonePlayerOne)//if player doesn't reach chopping table before fruit submission to customer,invalid delivery
                     wrongDelivery = true;               
                 choppingBoardManager.choppingDonePlayerOne = false;
-                if (!plateTableManager.plateCollectedPlayerOne)
+                if (!plateTableManager.plateCollectedPlayerOne)//if player doesn't collect plates  before fruit submission to customer,invalid delivery
                     wrongDelivery = true;
                 plateTableManager.plateCollectedPlayerOne = false;
-                if (wrongDelivery)
+                if (wrongDelivery)//wrong delivery message shown and score deducted
                 {
                     errorMessageWrongDeliveryP1.SetActive(true);
                     Invoke("DisableErrorMessageP1", 2.0f);
                     print("delivery error");
                     miscManager.playerOneScore -= 100 * wrongDeliveryCounter;
                 }
-                else
+                else//on successful delivery,score recalculated and remaining time added to player's timer
                 {
                     duccessfulDeliveryP1.SetActive(true);
                     Invoke("SuccessfulDeliveryMessageP1", 2.0f);
@@ -299,7 +300,7 @@ public class CustomerManager : MonoBehaviour
                 fruitManager.ResetPlayerFruitBasketP1();
             }
         }
-
+        //same for second player
         if (playerManager.playerTwoDestinationIdentity == PlayerManager.DestinationType.CUSTOMER_ONE
            || playerManager.playerTwoDestinationIdentity == PlayerManager.DestinationType.CUSTOMER_TWO
            || playerManager.playerTwoDestinationIdentity == PlayerManager.DestinationType.CUSTOMER_THREE
@@ -315,11 +316,11 @@ public class CustomerManager : MonoBehaviour
                 for (int i = 0; i < NO_OF_TOTAL_FOOD; i++)
                 {
                     if (
-                            !(fruitManager.playerTwoFruitS[i] != (byte)customerFruitRequirement[(int)playerManager.playerTwoDestinationIdentity - TOTAL_FRUIT_TYPE, 0]
+                            !(fruitManager.playerTwoFruitS[i] == (byte)customerFruitRequirement[(int)playerManager.playerTwoDestinationIdentity - TOTAL_FRUIT_TYPE, 0]
                             ||
-                            fruitManager.playerTwoFruitS[i] != (byte)customerFruitRequirement[(int)playerManager.playerTwoDestinationIdentity - TOTAL_FRUIT_TYPE, 1]
+                            fruitManager.playerTwoFruitS[i] == (byte)customerFruitRequirement[(int)playerManager.playerTwoDestinationIdentity - TOTAL_FRUIT_TYPE, 1]
                             ||
-                            fruitManager.playerTwoFruitS[i] != (byte)customerFruitRequirement[(int)playerManager.playerTwoDestinationIdentity - TOTAL_FRUIT_TYPE, 2])
+                            fruitManager.playerTwoFruitS[i] == (byte)customerFruitRequirement[(int)playerManager.playerTwoDestinationIdentity - TOTAL_FRUIT_TYPE, 2])
                         )
                     {
                         wrongDelivery = true;

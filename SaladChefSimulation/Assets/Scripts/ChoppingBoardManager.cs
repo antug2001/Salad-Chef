@@ -19,6 +19,7 @@ public class ChoppingBoardManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //necessay initialization done
         playerManager = players.GetComponent<PlayerManager>();
         fruitStallManager = fruitStalls.GetComponent<FruitStallManager>();
         errorMessageNothingToChopP1.SetActive(false);
@@ -33,7 +34,7 @@ public class ChoppingBoardManager : MonoBehaviour
         
     }
 
-    public void HandleChopperTablesFeatures()
+    public void HandleChopperTablesFeatures()//after reaching chopping table, coroutines are fired to size input.If no fruit in basket,error message is provided.
     {
         if (playerManager.playerOneDestinationIdentity == PlayerManager.DestinationType.CHOPPING_BOARD_ONE)
         {
@@ -85,7 +86,7 @@ public class ChoppingBoardManager : MonoBehaviour
     }
     private float duration = 5.0f;
     private float startTime;
-    IEnumerator CompleteChoppingProcessP1()
+    IEnumerator CompleteChoppingProcessP1()//after seizing input for the duration,input control regained
     {
         float t =0;
         while (t < 1.0f)
@@ -100,7 +101,7 @@ public class ChoppingBoardManager : MonoBehaviour
         healthBarChopP1.transform.localScale = new Vector3(initialLengthP1 , healthBarChopP1.transform.localScale.y, healthBarChopP1.transform.localScale.z);
     }
 
-    IEnumerator CompleteChoppingProcessP2()
+    IEnumerator CompleteChoppingProcessP2()//same for second player
     {
         float t = 0;
         while (t < 1.0f)
@@ -116,7 +117,7 @@ public class ChoppingBoardManager : MonoBehaviour
         healthBarChopP2.transform.localScale = new Vector3(initialLengthP2, healthBarChopP2.transform.localScale.y,
                                                                healthBarChopP2.transform.localScale.z);
     }
-    void DisableErrorMessageP1()
+    void DisableErrorMessageP1()//error message withdrawn
     {
         errorMessageNothingToChopP1.SetActive(false);
     }

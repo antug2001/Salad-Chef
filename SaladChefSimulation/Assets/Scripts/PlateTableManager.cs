@@ -22,7 +22,7 @@ public class PlateTableManager : MonoBehaviour
 
     }
 
-    public void HandlePlateTableFeatures()
+    public void HandlePlateTableFeatures()//ensuring plates are collected by both player before serving to customer
     {
         if (playerManager.playerOneDestinationIdentity == PlayerManager.DestinationType.PLATE_TABLES)
         {

@@ -16,6 +16,7 @@ public class FruitStallManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //necessary initialization regarding fruit stalls
         maxFruitErrorCollectionP1.SetActive(false);
         maxFruitErrorCollectionP2.SetActive(false);
         playerManager = players.GetComponent<PlayerManager>();
@@ -25,7 +26,7 @@ public class FruitStallManager : MonoBehaviour
         ResetPlayerFruitBasketP2();
     }
 
-    public void ResetPlayerFruitBasketP1()
+    public void ResetPlayerFruitBasketP1()//reseting player one fruit basket
     {
         for(int i=0;i<PlayerManager.MAXIMUM_FRUIT_IN_HAND_PERMITTED; i++)
         {
@@ -33,7 +34,7 @@ public class FruitStallManager : MonoBehaviour
             playerTwoFruitS[i] = (byte) PlayerManager.DestinationType.NONE;
         }
     }
-    public void ResetPlayerFruitBasketP2()
+    public void ResetPlayerFruitBasketP2()//same for player 2
     {
         for (int i = 0; i < PlayerManager.MAXIMUM_FRUIT_IN_HAND_PERMITTED; i++)
         {
@@ -47,7 +48,7 @@ public class FruitStallManager : MonoBehaviour
         
     }
 
-    public void HandleFruitStallManagement()
+    public void HandleFruitStallManagement()//collected fruit are put into list tracking and at the same time,possibility of collecting same fruit is eliminated
     {
         if (playerManager.playerOneDestinationIdentity >= PlayerManager.DestinationType.FRUIT_STALL_ONE && playerManager.playerOneDestinationIdentity <= PlayerManager.DestinationType.FRUIT_STALL_SIX)
         {
@@ -182,7 +183,7 @@ public class FruitStallManager : MonoBehaviour
                             break;
                     }
                 }
-                else
+                else//if trying to collect the already collected fruit,error message is presented
                 {
                     //error message
                     maxFruitErrorCollectionP1.SetActive(true);
@@ -190,7 +191,7 @@ public class FruitStallManager : MonoBehaviour
                 }
             }
         }
-
+        //same for player2
         if (playerManager.playerTwoDestinationIdentity >= PlayerManager.DestinationType.FRUIT_STALL_ONE && playerManager.playerTwoDestinationIdentity <= PlayerManager.DestinationType.FRUIT_STALL_SIX)
         {
             if (playerManager.playerTwoDestinationReached)

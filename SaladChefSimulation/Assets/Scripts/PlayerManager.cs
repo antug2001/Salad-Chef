@@ -38,6 +38,7 @@ public class PlayerManager : MonoBehaviour
 
     void Start()
     {
+        //players' fruit collection indicator icons are reset
         DisableAllFruitIconsP1();
         DisableAllFruitIconsP2();
     }
@@ -61,13 +62,13 @@ public class PlayerManager : MonoBehaviour
         playerTwoFruitIcon6.SetActive(false);
     }
     // Update is called once per frame
-    void Update()
+    void Update()//player movement auto handled
     {
         HandlePlayerOneMovement(playerOne.transform,targetPlayerOnePosition);
         HandlePlayerTwoMovement(playerTwo.transform, targetPlayerTwoPosition);
     }
 
-    private void HandlePlayerOneMovement(Transform currentTransform,Transform targetTransform)
+    private void HandlePlayerOneMovement(Transform currentTransform,Transform targetTransform)//tracking if player one reached destination
     {
         if (!isMovementAllowedPlayerOne || targetTransform == null)
             return;
@@ -86,7 +87,7 @@ public class PlayerManager : MonoBehaviour
 
     }
 
-    private void HandlePlayerTwoMovement(Transform currentTransform, Transform targetTransform)
+    private void HandlePlayerTwoMovement(Transform currentTransform, Transform targetTransform)//same as player one for other player
     {
         if (!isMovementAllowedPlayerTwo || targetTransform == null)
             return;
